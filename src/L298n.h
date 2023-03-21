@@ -8,6 +8,8 @@ class L298n {
             public:
                 bool FORWARD = true;
                 bool BACKWARD = false;
+		bool LEFT = true;
+		bool RIGHT = false;
 
                 void invert();
         };

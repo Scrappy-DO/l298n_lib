@@ -5,6 +5,8 @@
 void L298n::Direction::invert(){
     FORWARD = !FORWARD;
     BACKWARD = !BACKWARD;
+    LEFT = !LEFT;
+    RIGHT = !RIGHT;
 }
 
 // Motor class
