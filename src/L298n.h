@@ -8,8 +8,8 @@ class L298n {
             public:
                 bool FORWARD = true;
                 bool BACKWARD = false;
-		bool LEFT = true;
-		bool RIGHT = false;
+		        bool LEFT = true;
+		        bool RIGHT = false;
 
                 void invert();
         };
@@ -36,13 +36,16 @@ class L298n {
                 int in4;
 
             public:
+                Direction dirGlo;
                 Direction dirA;
                 Direction dirB;
 
                 Driver(int en_a, int en_b, int in_1, int in_2, int in_3, int in_4, bool invertA=false, bool invertB=false);
                 void begin();
+                void drive(bool dir_a, int speed);
                 void driveA(bool direction, int speed);
                 void driveB(bool direction, int speed);
+                void stop();
                 void stopA();
                 void stopB();
         };

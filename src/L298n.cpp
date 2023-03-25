@@ -67,6 +67,29 @@ void L298n::Driver::begin(){
     pinMode(in4, OUTPUT);
 }
 
+void L298n::Driver::drive(bool direction, int speed){
+    if (direction == dirA.FORWARD){
+        digitalWrite(in1, HIGH);
+        digitalWrite(in2, LOW);
+    }
+    else{
+        digitalWrite(in1, LOW);
+        digitalWrite(in2, HIGH);
+    }
+
+    if (direction == dirB.FORWARD){
+        digitalWrite(in3, HIGH);
+        digitalWrite(in4, LOW);
+    }
+    else{
+        digitalWrite(in3, LOW);
+        digitalWrite(in4, HIGH);
+    }
+
+    analogWrite(enA, speed);
+    analogWrite(enB, speed);
+}
+
 void L298n::Driver::driveA(bool direction, int speed){
     if (direction){
         digitalWrite(in1, HIGH);
@@ -89,6 +112,11 @@ void L298n::Driver::driveB(bool direction, int speed){
     }
 
     analogWrite(enB, speed);
+}
+
+void L298n::Driver::stop(){
+    analogWrite(enA, 0);
+    analogWrite(enB, 0);
 }
 
 void L298n::Driver::stopA(){
