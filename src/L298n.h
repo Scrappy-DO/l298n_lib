@@ -22,6 +22,9 @@ class L298n {
             public:
                 Direction dir;
                 Motor(int enable, int in_1, int in_2, bool invert=false);
+                Motor();
+                void setPins(int enable, int in_1, int in_2);
+                void invert();
                 void begin();
                 void drive(bool direction, int speed);
                 void stop();
@@ -41,6 +44,10 @@ class L298n {
                 Direction dirB;
 
                 Driver(int en_a, int en_b, int in_1, int in_2, int in_3, int in_4, bool invertA=false, bool invertB=false);
+                Driver();
+                void setPins(int en_a, int en_b, int in_1, int in_2, int in_3, int in_4);
+                void invertA();
+                void invertB();
                 void begin();
                 void drive(bool dir_a, int speed);
                 void driveA(bool direction, int speed);

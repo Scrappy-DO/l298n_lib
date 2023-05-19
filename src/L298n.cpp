@@ -17,7 +17,19 @@ L298n::Motor::Motor(int enable, int in_1, int in_2, bool invert/*=false*/){
     if (invert){
         dir.invert();
     }
-};
+}
+
+L298n::Motor::Motor(){}
+
+void L298n::Motor::setPins(int enable, int in_1, int in_2){
+    en = enable;
+    in1 = in_1;
+    in2 = in_2;
+}
+
+void L298n::Motor::invert(){
+    dir.invert();
+}
 
 void L298n::Motor::begin(){
     pinMode(en, OUTPUT);
@@ -56,7 +68,26 @@ L298n::Driver::Driver(int en_a, int en_b, int in_1, int in_2, int in_3, int in_4
     if (invertB){
         dirB.invert();
     }
-};
+}
+
+L298n::Driver::Driver(){}
+
+void L298n::Driver::setPins(int en_a, int en_b, int in_1, int in_2, int in_3, int in_4){
+    enA = en_a;
+    enB = en_b;
+    in1 = in_1;
+    in2 = in_2;
+    in3 = in_3;
+    in4 = in_4;
+}
+
+void L298n::Driver::invertA(){
+    dirA.invert();
+}
+
+void L298n::Driver::invertB(){
+    dirB.invert();
+}
 
 void L298n::Driver::begin(){
     pinMode(enA, OUTPUT);
